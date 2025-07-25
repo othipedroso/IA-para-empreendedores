@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA para Empreendedores - Automatize Seu Negócio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .floating-element {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.1;
+        }
+
+        .floating-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-2 {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-3 {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
+            background: linear-gradient(45deg, #ff5252, #ff9800);
+        }
+
+        .cta-primary i {
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: #f8f9fa;
+            position: relative;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .solution-item {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .solution-item:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+
+        .solution-icon {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: #ecf0f1;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #27ae60;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .pricing-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .price-original {
+            font-size: 1.5rem;
+            text-decoration: line-through;
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-current {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .price-savings {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        .bonus-list {
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .bonus-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .bonus-item:last-child {
+            border-bottom: none;
+        }
+
+        .bonus-value {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        /* Timer */
+        .urgency-timer {
+            background: rgba(231, 76, 60, 0.2);
+            border: 2px solid #e74c3c;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .timer-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timer-display {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffd700;
+            font-family: 'Courier New', monospace;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Guarantee Section */
+        .guarantee-section {
+            background: #2ecc71;
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .guarantee-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .guarantee-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Final CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 1rem 0;
+                min-height: 90vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .cta-primary {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .pricing-card {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+            
+            .price-current {
+                font-size: 3rem;
+            }
+            
+            .timer-display {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .problem-item,
+            .solution-item,
+            .benefit-item {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Floating Elements -->
+        <div class="floating-element floating-1">
+            <i class="fas fa-robot" style="font-size: 3rem; color: rgba(255, 255, 255, 0.1);"></i>
+        </div>
+        <div class="floating-element floating-2">
+            <i class="fas fa-chart-line" style="font-size: 2.5rem; color: rgba(255, 255, 255, 0.1);"></i>
+        </div>
+        <div class="floating-element floating-3">
+            <i class="fas fa-cogs" style="font-size: 2rem; color: rgba(255, 255, 255, 0.1);"></i>
+        </div>
+
+        <div class="hero-content">
+            <h1>Descubra Como Automatizar Seu Negócio Digital e Aumentar Seus Lucros em 300%</h1>
+            <p class="subtitle">O guia definitivo que já ajudou mais de 1.000 empreendedores a implementar IA em seus negócios e economizar 20+ horas semanais</p>
+            
+            <video autoplay loop playsinline style="width: 100%; max-width: 800px; border-radius: 15px; display: block; margin: 2rem auto; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+                <source src="VSL.mp4" type="video/mp4">
+                Seu navegador não suporta vídeo.
+            </video>
+
+            <a href="https://pay.kiwify.com.br/mxQnno0" class="cta-primary" target="_blank">
+                <i class="fas fa-rocket"></i> Quero Automatizar Meu Negócio Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title fade-in">🚨 Você Está Perdendo Dinheiro Todos os Dias</h2>
+            <div class="problem-grid">
+                <div class="problem-item fade-in">
+                    <i class="fas fa-clock problem-icon"></i>
+                    <h3>Trabalhando 12+ Horas por Dia</h3>
+                    <p>Você está preso em tarefas repetitivas que poderiam ser automatizadas, perdendo tempo precioso que poderia ser investido no crescimento do seu negócio.</p>
+                </div>
+                <div class="problem-item fade-in">
+                    <i class="fas fa-money-bill-wave problem-icon"></i>
+                    <h3>Perdendo Oportunidades de Lucro</h3>
+                    <p>Enquanto você faz tudo manualmente, seus concorrentes já estão usando IA para escalar seus negócios e dominar o mercado.</p>
+                </div>
+                <div class="problem-item fade-in">
+                    <i class="fas fa-tired problem-icon"></i>
+                    <h3>Esgotamento e Burnout</h3>
+                    <p>O excesso de trabalho manual está te deixando exausto, afetando sua criatividade e capacidade de tomar decisões estratégicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <h2 class="section-title fade-in" style="color: white;">💡 A Solução Que Vai Transformar Seu Negócio</h2>
+            <div class="solution-grid">
+                <div class="solution-item fade-in">
+                    <i class="fas fa-magic solution-icon"></i>
+                    <h3>Automação Inteligente</h3>
+                    <p>Aprenda a implementar sistemas de IA que trabalham 24/7 para você, automatizando vendas, atendimento e marketing.</p>
+                </div>
+                <div class="solution-item fade-in">
+                    <i class="fas fa-rocket solution-icon"></i>
+                    <h3>Escalabilidade Sem Limites</h3>
+                    <p>Descubra como crescer seu negócio sem aumentar proporcionalmente sua carga de trabalho ou custos operacionais.</p>
+                </div>
+                <div class="solution-item fade-in">
+                    <i class="fas fa-brain solution-icon"></i>
+                    <h3>Decisões Baseadas em Dados</h3>
+                    <p>Use IA para analisar dados e tomar decisões mais inteligentes, aumentando sua taxa de conversão e ROI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title fade-in">🎯 Resultados Que Você Vai Alcançar</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item fade-in">
+                    <i class="fas fa-chart-line benefit-icon"></i>
+                    <h3>300% Mais Lucro</h3>
+                    <p>Aumente significativamente sua receita com automações que vendem enquanto você dorme.</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <i class="fas fa-clock benefit-icon"></i>
+                    <h3>20+ Horas Livres</h3>
+                    <p>Recupere seu tempo para focar no que realmente importa: estratégia e crescimento.</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <i class="fas fa-users benefit-icon"></i>
+                    <h3>Atendimento 24/7</h3>
+                    <p>Seus clientes serão atendidos instantaneamente, aumentando a satisfação e fidelização.</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <i class="fas fa-shield-alt benefit-icon"></i>
+                    <h3>Vantagem Competitiva</h3>
+                    <p>Saia na frente da concorrência com tecnologias que poucos dominam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="oferta">
+        <div class="container">
+            <h2 class="section-title fade-in" style="color: white;">⚠️ OFERTA ESPECIAL POR TEMPO LIMITADO</h2>
+            
+            <div class="pricing-card fade-in">
+                <div class="price-original">De R$ 497</div>
+                <div class="price-current">R$ 197</div>
+                <div class="price-savings">ECONOMIA DE R$ 300</div>
+                
+                <div class="bonus-list">
+                    <div class="bonus-item">
+                        <span>📚 Ebook Completo (128 páginas)</span>
+                        <span class="bonus-value">R$ 497</span>
+                    </div>
+                    <div class="bonus-item">
+                        <span>📊 Planilha de ROI de Automações</span>
+                        <span class="bonus-value">R$ 297</span>
+                    </div>
+                    <div class="bonus-item">
+                        <span>🛠️ Lista de 50+ Ferramentas</span>
+                        <span class="bonus-value">R$ 497</span>
+                    </div>
+                    <div class="bonus-item">
+                        <span>📝 Templates de Prompts</span>
+                        <span class="bonus-value">R$ 397</span>
+                    </div>
+                    <div class="bonus-item">
+                        <span>✅ Checklist de 90 Dias</span>
+                        <span class="bonus-value">R$ 197</span>
+                    </div>
+                </div>
+
+                <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1rem; margin-top: 1rem;">
+                    <strong>Valor Total: R$ 1.985</strong><br>
+                    <span style="color: #ffd700; font-size: 1.2rem; font-weight: 600;">Seu Investimento Hoje: R$ 197</span>
+                </div>
+
+                <div class="urgency-timer">
+                    <div class="timer-title">Esta oferta expira em:</div>
+                    <div class="timer-display" id="countdown">00:10:00</div>
+                </div>
+
+                <a href="https://pay.kiwify.com.br/mxQnno0" class="cta-primary" style="margin-top: 2rem; width: 100%; display: block; text-align: center;" target="_blank">
+                    <i class="fas fa-credit-card"></i> GARANTIR MINHA VAGA AGORA
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Não Deixe Seus Concorrentes Saírem na Frente</h2>
+                <p style="font-size: 1.3rem; margin-bottom: 2rem;">
+                    Cada dia que você adia a implementação de IA é dinheiro deixado na mesa. 
+                    Os empreendedores que agem agora terão vantagem competitiva impossível de alcançar no futuro.
+                </p>
+                
+                <a href="https://pay.kiwify.com.br/mxQnno0" class="cta-primary" style="font-size: 1.5rem; padding: 25px 50px;">
+                    <i class="fas fa-rocket"></i> SIM, QUERO TRANSFORMAR MEU NEGÓCIO AGORA
+                </a>
+                
+                <p style="margin-top: 2rem; opacity: 0.9;">
+                    <i class="fas fa-lock"></i> Compra 100% Segura e Protegida
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 IA para Empreendedores. Todos os direitos reservados.</p>
+            <p>Suporte: contato@iaparaempreendedores.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Countdown timer (10 minutos)
+        function startCountdown(duration) {
+            let timer = duration, minutes, seconds;
+            const countdownInterval = setInterval(() => {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                const countdownElement = document.getElementById('countdown');
+                if (countdownElement) {
+                    countdownElement.textContent = `${minutes}:${seconds}`;
+                }
+
+                if (--timer < 0) {
+                    if (countdownElement) {
+                        countdownElement.textContent = "OFERTA EXPIRADA";
+                        countdownElement.style.color = "#e74c3c";
+                    }
+                    clearInterval(countdownInterval);
+                }
+            }, 1000);
+        }
+
+        // Initialize countdown when page loads
+        window.addEventListener('load', () => {
+            startCountdown(600); // 10 minutos = 600 segundos
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
