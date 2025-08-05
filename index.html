@@ -728,27 +728,28 @@
             observer.observe(el);
         });
 
-        // Timer de urgência
+        // Timer de urgência - 10 minutos
+        let countdownTime = 10 * 60; // 10 minutos em segundos
+        
         function updateCountdown() {
-            const now = new Date().getTime();
-            const tomorrow = new Date();
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            tomorrow.setHours(0, 0, 0, 0);
+            if (countdownTime <= 0) {
+                countdownTime = 10 * 60; // Reinicia o timer quando chega a zero
+            }
             
-            const distance = tomorrow - now;
-            
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const hours = Math.floor(countdownTime / 3600);
+            const minutes = Math.floor((countdownTime % 3600) / 60);
+            const seconds = countdownTime % 60;
             
             document.getElementById('countdown').innerHTML = 
                 String(hours).padStart(2, '0') + ':' + 
                 String(minutes).padStart(2, '0') + ':' + 
                 String(seconds).padStart(2, '0');
+            
+            countdownTime--;
         }
 
         // Atualizar timer a cada segundo
-        setInterval(updateCountdown, 600);
+        setInterval(updateCountdown, 1000);
         updateCountdown();
 
         // Verificar se o iframe carregou corretamente
