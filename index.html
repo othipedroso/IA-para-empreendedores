@@ -100,6 +100,42 @@
             margin-right: auto;
         }
 
+        /* Video Container Styles */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        /* Fallback video styles */
+        .video-fallback {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            display: none;
+        }
+
         .cta-primary {
             display: inline-flex;
             align-items: center;
@@ -115,6 +151,7 @@
             box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-top: 2rem;
         }
 
         .cta-primary:hover {
@@ -441,6 +478,10 @@
             .timer-display {
                 font-size: 2rem;
             }
+
+            .video-container {
+                margin: 1.5rem auto;
+            }
         }
 
         @media (max-width: 480px) {
@@ -460,6 +501,10 @@
             .solution-item,
             .benefit-item {
                 padding: 1.5rem;
+            }
+
+            .video-container {
+                margin: 1rem auto;
             }
         }
     </style>
@@ -482,18 +527,31 @@
             <h1>Descubra Como Automatizar Seu Negócio Digital e Aumentar Seus Lucros em 300%</h1>
             <p class="subtitle">O guia definitivo que já ajudou mais de 1.000 empreendedores a implementar IA em seus negócios e economizar 20+ horas semanais</p>
             
-            
-<div style="position:relative; width:100%; height:0px; padding-bottom:56.250%">
-    <iframe 
-        src="https://streamable.com/e/oveq1a?autoplay=1&muted=1" 
-        style="border:none; width:100%; height:100%; position:absolute; left:0; top:0; overflow:hidden;" 
-        allow="autoplay" 
-        allowfullscreen 
-        width="100%" 
-        height="100%">
-    </iframe>
-</div>
-
+            <!-- Video Container com múltiplas opções -->
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <!-- Opção 1: Iframe do Streamable (formato correto) -->
+                    <iframe 
+                        src="https://streamable.com/e/ccxqa8?autoplay=1&muted=1&loop=1" 
+                        frameborder="0" 
+                        width="100%" 
+                        height="100%" 
+                        allowfullscreen 
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        loading="lazy">
+                    </iframe>
+                </div>
+                
+                <!-- Fallback: Link direto para o vídeo -->
+                <noscript>
+                    <div style="text-align: center; padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 15px;">
+                        <p style="margin-bottom: 1rem;">Seu navegador não suporta vídeos incorporados.</p>
+                        <a href="https://streamable.com/ccxqa8" target="_blank" style="color: #ffd700; text-decoration: underline;">
+                            Clique aqui para assistir ao vídeo
+                        </a>
+                    </div>
+                </noscript>
+            </div>
 
             <a href="https://pay.kiwify.com.br/mxQnno0" class="cta-primary" target="_blank">
                 <i class="fas fa-rocket"></i> Quero Automatizar Meu Negócio Agora
@@ -552,101 +610,92 @@
     <!-- Benefits Section -->
     <section class="benefits-section">
         <div class="container">
-            <h2 class="section-title fade-in">🎯 Resultados Que Você Vai Alcançar</h2>
+            <h2 class="section-title fade-in">🎯 O Que Você Vai Conseguir</h2>
             <div class="benefits-grid">
                 <div class="benefit-item fade-in">
                     <i class="fas fa-chart-line benefit-icon"></i>
-                    <h3>300% Mais Lucro</h3>
-                    <p>Aumente significativamente sua receita com automações que vendem enquanto você dorme.</p>
+                    <h3>Aumento de 300% nos Lucros</h3>
+                    <p>Automatize processos e libere tempo para focar no que realmente importa: crescer seu negócio.</p>
                 </div>
                 <div class="benefit-item fade-in">
                     <i class="fas fa-clock benefit-icon"></i>
-                    <h3>20+ Horas Livres</h3>
-                    <p>Recupere seu tempo para focar no que realmente importa: estratégia e crescimento.</p>
+                    <h3>Economize 20+ Horas por Semana</h3>
+                    <p>Deixe a IA trabalhar para você enquanto você se dedica à estratégia e ao crescimento.</p>
                 </div>
                 <div class="benefit-item fade-in">
                     <i class="fas fa-users benefit-icon"></i>
                     <h3>Atendimento 24/7</h3>
-                    <p>Seus clientes serão atendidos instantaneamente, aumentando a satisfação e fidelização.</p>
+                    <p>Nunca mais perca um cliente por falta de disponibilidade. IA trabalha enquanto você dorme.</p>
                 </div>
                 <div class="benefit-item fade-in">
-                    <i class="fas fa-shield-alt benefit-icon"></i>
-                    <h3>Vantagem Competitiva</h3>
-                    <p>Saia na frente da concorrência com tecnologias que poucos dominam.</p>
+                    <i class="fas fa-target benefit-icon"></i>
+                    <h3>Marketing Personalizado</h3>
+                    <p>Campanhas inteligentes que se adaptam ao comportamento dos seus clientes automaticamente.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section class="pricing-section" id="oferta">
+    <section class="pricing-section">
         <div class="container">
-            <h2 class="section-title fade-in" style="color: white;">⚠️ OFERTA ESPECIAL POR TEMPO LIMITADO</h2>
-            
+            <h2 class="section-title fade-in" style="color: white;">💰 Oferta Especial por Tempo Limitado</h2>
             <div class="pricing-card fade-in">
                 <div class="price-original">De R$ 497</div>
-                <div class="price-current">R$ 197</div>
-                <div class="price-savings">ECONOMIA DE R$ 300</div>
+                <div class="price-current">R$ 97</div>
+                <div class="price-savings">🔥 Economia de R$ 400</div>
                 
                 <div class="bonus-list">
                     <div class="bonus-item">
-                        <span>📚 Ebook Completo (128 páginas)</span>
-                        <span class="bonus-value">R$ 497</span>
-                    </div>
-                    <div class="bonus-item">
-                        <span>📊 Planilha de ROI de Automações</span>
-                        <span class="bonus-value">R$ 297</span>
-                    </div>
-                    <div class="bonus-item">
-                        <span>🛠️ Lista de 50+ Ferramentas</span>
-                        <span class="bonus-value">R$ 497</span>
-                    </div>
-                    <div class="bonus-item">
-                        <span>📝 Templates de Prompts</span>
-                        <span class="bonus-value">R$ 397</span>
-                    </div>
-                    <div class="bonus-item">
-                        <span>✅ Checklist de 90 Dias</span>
+                        <span>📚 Guia Completo de IA para Negócios</span>
                         <span class="bonus-value">R$ 197</span>
                     </div>
-                </div>
-
-                <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1rem; margin-top: 1rem;">
-                    <strong>Valor Total: R$ 1.985</strong><br>
-                    <span style="color: #ffd700; font-size: 1.2rem; font-weight: 600;">Seu Investimento Hoje: R$ 197</span>
+                    <div class="bonus-item">
+                        <span>🤖 Templates de Automação Prontos</span>
+                        <span class="bonus-value">R$ 147</span>
+                    </div>
+                    <div class="bonus-item">
+                        <span>📞 Suporte Exclusivo por 30 Dias</span>
+                        <span class="bonus-value">R$ 97</span>
+                    </div>
+                    <div class="bonus-item">
+                        <span>🎯 Estratégias de Marketing com IA</span>
+                        <span class="bonus-value">R$ 127</span>
+                    </div>
                 </div>
 
                 <div class="urgency-timer">
-                    <div class="timer-title">Esta oferta expira em:</div>
-                    <div class="timer-display" id="countdown">00:10:00</div>
+                    <div class="timer-title">⏰ Oferta expira em:</div>
+                    <div class="timer-display" id="countdown">23:59:45</div>
                 </div>
 
-                <a href="https://pay.kiwify.com.br/mxQnno0" class="cta-primary" style="margin-top: 2rem; width: 100%; display: block; text-align: center;" target="_blank">
-                    <i class="fas fa-credit-card"></i> GARANTIR MINHA VAGA AGORA
+                <a href="https://pay.kiwify.com.br/mxQnno0" class="cta-primary" target="_blank">
+                    <i class="fas fa-credit-card"></i> Garantir Minha Vaga Agora
                 </a>
             </div>
         </div>
     </section>
 
-
+    <!-- Guarantee Section -->
+    <section class="guarantee-section">
+        <div class="container">
+            <div class="guarantee-content fade-in">
+                <i class="fas fa-shield-alt guarantee-icon"></i>
+                <h2>Garantia Incondicional de 30 Dias</h2>
+                <p style="font-size: 1.2rem; margin-top: 1rem;">Se você não conseguir automatizar pelo menos uma tarefa do seu negócio em 30 dias, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Final CTA Section -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content fade-in">
-                <h2>Não Deixe Seus Concorrentes Saírem na Frente</h2>
-                <p style="font-size: 1.3rem; margin-bottom: 2rem;">
-                    Cada dia que você adia a implementação de IA é dinheiro deixado na mesa. 
-                    Os empreendedores que agem agora terão vantagem competitiva impossível de alcançar no futuro.
-                </p>
-                
-                <a href="https://pay.kiwify.com.br/mxQnno0" class="cta-primary" style="font-size: 1.5rem; padding: 25px 50px;">
-                    <i class="fas fa-rocket"></i> SIM, QUERO TRANSFORMAR MEU NEGÓCIO AGORA
+                <h2 style="margin-bottom: 2rem;">🚀 Não Deixe Seus Concorrentes Saírem na Frente</h2>
+                <p style="font-size: 1.3rem; margin-bottom: 2rem;">Enquanto você hesita, outros empreendedores já estão implementando IA e dominando seus mercados. A hora é agora!</p>
+                <a href="https://pay.kiwify.com.br/mxQnno0" class="cta-primary" target="_blank">
+                    <i class="fas fa-rocket"></i> Quero Começar Agora Mesmo
                 </a>
-                
-                <p style="margin-top: 2rem; opacity: 0.9;">
-                    <i class="fas fa-lock"></i> Compra 100% Segura e Protegida
-                </p>
             </div>
         </div>
     </section>
@@ -654,13 +703,14 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 IA para Empreendedores. Todos os direitos reservados.</p>
-            <p>Suporte: contato@iaparaempreendedores.com</p>
+            <p>&copy; 2024 IA para Empreendedores. Todos os direitos reservados.</p>
+            <p>Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.</p>
         </div>
     </footer>
 
+    <!-- JavaScript para animações e timer -->
     <script>
-        // Scroll animations
+        // Animação de fade-in
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -678,60 +728,43 @@
             observer.observe(el);
         });
 
-        // Countdown timer (10 minutos)
-        function startCountdown(duration) {
-            let timer = duration, minutes, seconds;
-            const countdownInterval = setInterval(() => {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                const countdownElement = document.getElementById('countdown');
-                if (countdownElement) {
-                    countdownElement.textContent = `${minutes}:${seconds}`;
-                }
-
-                if (--timer < 0) {
-                    if (countdownElement) {
-                        countdownElement.textContent = "OFERTA EXPIRADA";
-                        countdownElement.style.color = "#e74c3c";
-                    }
-                    clearInterval(countdownInterval);
-                }
-            }, 1000);
+        // Timer de urgência
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            
+            const distance = tomorrow - now;
+            
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').innerHTML = 
+                String(hours).padStart(2, '0') + ':' + 
+                String(minutes).padStart(2, '0') + ':' + 
+                String(seconds).padStart(2, '0');
         }
 
-        // Initialize countdown when page loads
-        window.addEventListener('load', () => {
-            startCountdown(600); // 10 minutos = 600 segundos
-        });
+        // Atualizar timer a cada segundo
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // Verificar se o iframe carregou corretamente
+        window.addEventListener('load', function() {
+            const iframe = document.querySelector('iframe');
+            const fallback = document.querySelector('.video-fallback');
+            
+            iframe.addEventListener('error', function() {
+                console.log('Erro ao carregar iframe, mostrando fallback');
+                iframe.style.display = 'none';
+                if (fallback) {
+                    fallback.style.display = 'block';
                 }
             });
         });
     </script>
-
-<a href="https://pay.kiwify.com.br/mxQnno0" 
-   style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
-          z-index:9999;background:#ff6b6b;color:white;padding:15px 25px;
-          border-radius:50px;text-align:center;font-weight:bold;
-          box-shadow:0 4px 20px rgba(0,0,0,0.2);text-decoration:none;
-          font-family: 'Inter', sans-serif; font-size: 1rem;">
-   QUERO AUTOMATIZAR AGORA
-</a>
-
 </body>
 </html>
 
